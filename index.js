@@ -37,4 +37,45 @@ Ao final deve se exibir uma mensagem:
   guerreiro atacou usando espada
  */
 
+  class Heroi {
+    constructor(nome, idade, tipo) {
+      this.nome = nome;
+      this.idade = idade;
+      this.tipo = tipo;
+    }
   
+    atacar() {
+      let ataque;
+      switch (this.tipo) {
+        case 'mago':
+          ataque = 'usou magia';
+          break;
+        case 'guerreiro':
+          ataque = 'usou espada';
+          break;
+        case 'monge':
+          ataque = 'usou artes marciais';
+          break;
+        case 'ninja':
+          ataque = 'usou shuriken';
+          break;
+        default:
+          ataque = 'fez um ataque desconhecido';
+      }
+      console.log(`O ${this.tipo} atacou usando ${ataque}`);
+    }
+  }
+  
+  function criarHerois() {
+    return [
+      new Heroi('Arthur', 30, 'guerreiro'),
+      new Heroi('Merlin', 150, 'mago'),
+      new Heroi('Bruce', 25, 'monge'),
+      new Heroi('Naruto', 17, 'ninja')
+    ];
+  }
+  
+  const herois = criarHerois();
+  for (let heroi of herois) {
+    heroi.atacar();
+  }
